@@ -110,10 +110,6 @@ const loginUser = asyncHandler(async (req, res, next) => {
     res.status(200).json({
       success: true,
       data: {
-        id: user._id,
-        username: user.username,
-        email: user.email,
-        role: user.role,
         accessToken,
       },
       message: "User successfully logged in!",
@@ -179,9 +175,7 @@ const refreshToken = asyncHandler(async (req, res, next) => {
     res.json({
       success: true,
       data: {
-        user: foundUser.username,
         accessToken: newAccessToken,
-        role: foundUser.role,
       },
       message: "Token refreshed successfully!",
     });
